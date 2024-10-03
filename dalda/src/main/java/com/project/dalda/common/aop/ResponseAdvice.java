@@ -24,6 +24,6 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         if(body instanceof ErrorResponse){
             return CommonResponse.error(((ErrorResponse) body).getMessage());
         }
-        return CommonResponse.ok(body, ((CommonResponse<?>) body).getMessage());
+        return CommonResponse.ok(((CommonResponse<?>) body).getData(), ((CommonResponse<?>) body).getMessage());
     }
 }

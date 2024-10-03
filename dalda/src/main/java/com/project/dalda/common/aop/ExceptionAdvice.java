@@ -2,7 +2,7 @@ package com.project.dalda.common.aop;
 
 import com.project.dalda.common.response.ErrorResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.BadCredentialsException;
+//import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -23,13 +23,13 @@ public class ExceptionAdvice {
                 .build();
     }
 
-    @ExceptionHandler(BadCredentialsException.class)
-    public ErrorResponse badCredentialException(BadCredentialsException e) {
-        return ErrorResponse.builder()
-                .errorCode(INVALID_CREDENTIALS)
-                .message("존재하지 않는 회원입니다.")
-                .build();
-    }
+//    @ExceptionHandler(BadCredentialsException.class)
+//    public ErrorResponse badCredentialException(BadCredentialsException e) {
+//        return ErrorResponse.builder()
+//                .errorCode(INVALID_CREDENTIALS)
+//                .message("존재하지 않는 회원입니다.")
+//                .build();
+//    }
 
     @ExceptionHandler(IllegalStateException.class)
     public ErrorResponse IllegalStateException(IllegalStateException e) {
