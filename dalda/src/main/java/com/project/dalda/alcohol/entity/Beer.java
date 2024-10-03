@@ -18,6 +18,7 @@ public class Beer {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
     @SequenceGenerator(name = "id", initialValue = 1, allocationSize = 1)
     private Long id;
+    private String img;
     private String name;
     private String enName;
     private String type;
