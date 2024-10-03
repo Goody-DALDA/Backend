@@ -1,8 +1,10 @@
 package com.project.dalda.alcohol.response;
 
+import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
+@Getter
 public abstract class AlcoholResponseDto {
     protected Long id;
     protected String name;

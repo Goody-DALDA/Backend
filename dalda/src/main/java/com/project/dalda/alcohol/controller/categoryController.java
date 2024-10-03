@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/api/alcohols")
+@RestController // 경로를 지정하지 않고 클래스에 어노테이션 추가
+@RequestMapping("/api/alcohols") // 기본 경로 설정
 @RequiredArgsConstructor
 public class categoryController {
     private final CategoryService categoryService;
 
-    @GetMapping("category")
+    @GetMapping
     public CommonResponse<?> likeAlcohol(@RequestParam(required = false) String category) {
         List<AlcoholResponseDto> alcohols;
 
@@ -45,7 +46,6 @@ public class categoryController {
                     throw new IllegalArgumentException("해당 카테고리는 존재하지 않습니다.");
             }
         }
-
         return CommonResponse.ok(alcohols, "주류 목록 조회 성공");
     }
 }
