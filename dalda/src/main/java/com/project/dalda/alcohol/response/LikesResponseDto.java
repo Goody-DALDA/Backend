@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Getter
 @Builder
 @AllArgsConstructor
@@ -14,6 +16,7 @@ public class LikesResponseDto {
 
     private Long alcoholId;
     private String alcoholType;
+    //private Date create_at;
 
     public static LikesResponseDto of(Long alcoholId, String alcoholType) {
         return LikesResponseDto.builder()
