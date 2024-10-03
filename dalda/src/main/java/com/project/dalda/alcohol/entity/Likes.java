@@ -26,8 +26,8 @@ public class Likes {
     @JoinColumn(name = "id", nullable = false)
     private Users userId;
     private String status;
-    private Date createDate;
-    private Date updateDate;
+    private Date createAt;
+    private Date updateAt;
 
     public void update(String status){
         this.status = status;

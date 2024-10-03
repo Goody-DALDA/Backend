@@ -24,5 +24,5 @@ public class Beer {
     private String type;
     private String country;
     private String comment;
-    private Date create_at;
+    private Date createAt;
 }

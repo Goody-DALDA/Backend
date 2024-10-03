@@ -21,7 +21,7 @@ public class Sake {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id")
     @SequenceGenerator(name = "id", initialValue = 1, allocationSize = 1)
     private Long id;
-    private Long price;
+    private String price;
     private String name;
     private String country;
     private String volume;

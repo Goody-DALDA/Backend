@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Getter
 @Entity
 @AllArgsConstructor
@@ -25,6 +27,5 @@ public class TraditionalLiquor {
     private String img;
     private String pairingFood;
     private String brewery;
-
-
+    private Date create_at;
 }
