@@ -21,13 +21,13 @@ public class Wisky {
     private String name;
     private String type;
     private String country;
-    private Long price;
+    private String price;
     private String aroma;
     private String taste;
     private String finish;
     private String volume;
     private String abv;
     private String img;
-    private Date create_at;
+    private Date createAt;
 
 }
