@@ -1,13 +1,10 @@
 package com.project.dalda.alcohol.entity;
 
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.security.PrivateKey;
 import java.util.Date;
 
 @Entity

@@ -3,7 +3,6 @@ package com.project.dalda.alcohol.controller;
 import com.project.dalda.alcohol.response.LikesResponseDto;
 import com.project.dalda.alcohol.service.LikesService;
 import com.project.dalda.common.response.CommonResponse;
-import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

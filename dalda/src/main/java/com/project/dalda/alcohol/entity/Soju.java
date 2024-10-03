@@ -1,6 +1,5 @@
 package com.project.dalda.alcohol.entity;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

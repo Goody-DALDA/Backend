@@ -3,20 +3,12 @@ package com.project.dalda.alcohol.service;
 import com.project.dalda.alcohol.entity.*;
 import com.project.dalda.alcohol.repository.*;
 import com.project.dalda.alcohol.request.LikesDto;
-import com.project.dalda.alcohol.response.LikesResponseDto;
-import com.project.dalda.common.response.CommonResponse;
 import com.project.dalda.users.entity.Users;
 import com.project.dalda.users.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.SpringApplicationRunListener;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @Service

@@ -1,14 +1,11 @@
 package com.project.dalda.alcohol.request;
 
 import com.project.dalda.alcohol.entity.Likes;
-import com.project.dalda.alcohol.response.LikesResponseDto;
 import com.project.dalda.users.entity.Users;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.Date;
 
 @Getter
 @Builder

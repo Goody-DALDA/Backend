@@ -1,6 +1,5 @@
 package com.project.dalda.alcohol.response;
 
-import com.project.dalda.alcohol.entity.Likes;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
