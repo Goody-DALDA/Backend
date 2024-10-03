@@ -23,7 +23,7 @@ public class Likes {
     private Long alcoholId;
     private String alcoholType;  // 술의 종류 (soju, whiskey, sake 등)
     @ManyToOne
-    @JoinColumn(name = "id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private Users userId;
     private String status;
     private Date createAt;

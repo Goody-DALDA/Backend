@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface LikesRepository extends JpaRepository<Likes, Long> {
-    List<Likes> findByUserIdAndStatus(Long userId, String status);
+    List<Likes> findByUserId_IdAndStatus(Long userId, String status);
 
 }

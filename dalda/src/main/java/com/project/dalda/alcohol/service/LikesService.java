@@ -55,7 +55,7 @@ public class LikesService {
     }
 
     public List<Object> getLikeList(Long userId) {
-        List<Likes> likes = likeRepository.findByUserIdAndStatus(userId, "active");
+        List<Likes> likes = likeRepository.findByUserId_IdAndStatus(userId, "active");
         List<Long> sojuIds = new ArrayList<>();
         List<Long> beerIds = new ArrayList<>();
         List<Long> sakeIds = new ArrayList<>();
