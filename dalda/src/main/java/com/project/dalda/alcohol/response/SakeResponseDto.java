@@ -2,11 +2,13 @@ package com.project.dalda.alcohol.response;
 
 import com.project.dalda.alcohol.entity.Sake;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Date;
 
 @SuperBuilder
+@Getter
 public class SakeResponseDto extends AlcoholResponseDto{
 
     private String price;
@@ -29,6 +31,7 @@ public class SakeResponseDto extends AlcoholResponseDto{
                 .img(sake.getImg())
                 .price(sake.getPrice())
                 .country(sake.getCountry())
+                .abv(sake.getAbv())
                 .volume(sake.getVolume())
                 .aroma(sake.getAroma())
                 .taste(sake.getTaste())

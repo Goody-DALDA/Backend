@@ -12,7 +12,11 @@ public class BeerResponseDto extends AlcoholResponseDto{
     private String enName;
     private String type;
     private String country;
-    private String comment;
+    private Double appearance;
+    private Double flavor;
+    private Double mouthfeel;
+    private Double aroma;
+    private String abv;
 
     @Override
     public String getCategory() {
@@ -26,8 +30,12 @@ public class BeerResponseDto extends AlcoholResponseDto{
                 .name(beer.getName())
                 .enName(beer.getEnName())
                 .type(beer.getType())
+                .abv(beer.getAbv())
                 .country(beer.getCountry())
-                .comment(beer.getComment())
+                .appearance(beer.getAppearance())
+                .flavor(beer.getFlavor())
+                .mouthfeel(beer.getMouthfeel())
+                .aroma(beer.getAroma())
                 .build();
     }
 }

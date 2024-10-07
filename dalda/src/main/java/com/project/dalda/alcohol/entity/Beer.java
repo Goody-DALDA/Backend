@@ -23,6 +23,10 @@ public class Beer {
     private String enName;
     private String type;
     private String country;
-    private String comment;
+    private String abv;
+    private Double appearance;
+    private Double flavor;
+    private Double mouthfeel;
+    private Double aroma;
     private Date createAt;
 }

@@ -2,9 +2,11 @@ package com.project.dalda.alcohol.response;
 
 import com.project.dalda.alcohol.entity.TraditionalLiquor;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
+@Getter
 public class TraditionalLiquorResponseDto extends AlcoholResponseDto{
 
     private String type;

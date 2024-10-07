@@ -2,9 +2,11 @@ package com.project.dalda.alcohol.response;
 
 import com.project.dalda.alcohol.entity.Wisky;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.experimental.SuperBuilder;
 
 @SuperBuilder
+@Getter
 public class WiskyResponseDto extends AlcoholResponseDto {
 
     private String type;
