@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController // 경로를 지정하지 않고 클래스에 어노테이션 추가
-@RequestMapping("/api/alcohols") // 기본 경로 설정
+@RestController
+@RequestMapping("/api/alcohols")
 @RequiredArgsConstructor
 public class categoryController {
     private final CategoryService categoryService;
@@ -19,10 +19,8 @@ public class categoryController {
         List<AlcoholResponseDto> alcohols;
 
         if (category == null || category.isEmpty()) {
-            // 모든 카테고리 조회
             alcohols = categoryService.getAllAlcohols();
         } else {
-            // 카테고리별 조회
             switch (category.toLowerCase()) {
                 case "soju":
                     alcohols = categoryService.getSojuAlcohols();
