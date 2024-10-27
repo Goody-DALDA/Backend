@@ -28,5 +28,4 @@ public class CommonResponse<T> {
                 .message(errorMessage)
                 .build();
     }
-
 }
