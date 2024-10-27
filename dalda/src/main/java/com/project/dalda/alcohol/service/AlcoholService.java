@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class CategoryService {
+public class AlcoholService {
 
     private final SojuRepository sojuRepository ;
     private final BeerRepository beerRepository;
