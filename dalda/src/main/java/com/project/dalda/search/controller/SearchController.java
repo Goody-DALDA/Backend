@@ -5,21 +5,18 @@ import com.project.dalda.common.response.CommonResponse;
 import com.project.dalda.search.response.SearchResponseDto;
 import com.project.dalda.search.service.SearchService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/search")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class SearchController {
     private final SearchService searchService;
 
-    @GetMapping
+    @GetMapping("/search")
     public CommonResponse<?> getSearchBasedRecommendations(@RequestParam String recommendations) {
         Integer limit = 5; // 5개로 제한
 
@@ -27,7 +24,7 @@ public class SearchController {
         return CommonResponse.ok(searchService.getSearchBasedRecommendations(recommendations, limit), "5개의 데이터를 가져오는데 성공하였습니다.");
     }
 
-    @GetMapping("/alcohols")
+    @GetMapping("/search/alcohols")
     public CommonResponse<?> getSearchDate(@RequestParam Long id, @RequestParam Long alcoholId, @RequestParam String category) {
         Object alcohols;
 
@@ -57,8 +54,14 @@ public class SearchController {
         return CommonResponse.ok(alcohols, "검색 결과 리턴");
     }
 
-    @GetMapping("/list")
+    @GetMapping("/search/list")
     public CommonResponse<?> list(@RequestParam String name) {
         return CommonResponse.ok(searchService.getSearchData(name), "검색 결과 리턴");
+    }
+
+    @GetMapping("/alcohols/{alcoholId}/{category}/view")
+    public CommonResponse<?> getAlcohols(@PathVariable int alcoholId, @PathVariable String category) {
+        searchService.increaseViewCount(alcoholId, category);
+        return CommonResponse.ok(null,"조회 수를 증가시켰습니다.");
     }
 }

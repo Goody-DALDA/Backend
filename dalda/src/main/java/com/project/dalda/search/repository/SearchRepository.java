@@ -12,4 +12,6 @@ public interface SearchRepository extends JpaRepository<Search, Long> {
     @Query("SELECT s FROM Search s WHERE s.name LIKE %?1% ORDER BY s.category ASC, s.name ASC")
     List<Search> getSearchData(String input);
 
+    Search findByAlcoholIdAndCategory(int id, String category);
+
 }

@@ -123,4 +123,14 @@ public class SearchService {
         return data;
     }
 
+    public void increaseViewCount(int alcoholId, String category) {
+
+        Search search = searchRepository.findByAlcoholIdAndCategory(alcoholId, category);
+        if(search == null) {
+            throw new IllegalArgumentException("해당 알코올 정보를 찾을 수 없습니다.");
+        }
+        search.incrementSearchCount();
+        searchRepository.save(search);
+    }
+
 }
