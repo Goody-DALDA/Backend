@@ -182,3 +182,4 @@ dalda/gradle/wrapper/gradle-wrapper.properties
 dalda/gradlew
 dalda/gradlew.bat
 dalda/settings.gradle
+dalda/.settings/
