@@ -13,6 +13,13 @@ java {
 	}
 }
 
+//compileJava{
+//	options.compilerArgs << '-parameters'
+//}
+
+tasks.withType(JavaCompile) {
+	options.compilerArgs << "-parameters"
+}
 configurations {
 	all {
 		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'

@@ -20,6 +20,9 @@ public class UserService {
     @Transactional
     public String kakaoLogin(String email, String nickname, String profileImg) {
         // 사용자 존재 여부 확인
+        boolean isNewUser = !userRepository.existsByEmail(email); // 신규 사용자 여부 먼저 판단
+        System.out.println("isNewUser: " + isNewUser); // 디버깅용 로그
+
         User user = userRepository.findByEmail(email).orElse(null);
 
         // 사용자 없을 경우 새로 생성
@@ -55,17 +58,30 @@ public class UserService {
         return accessToken; // 안드로이드로 엑세스 토큰 반환
     }
 
+
     public User getUserProfile(String email) {
         return userRepository.findByEmail(email).orElseThrow(() -> new IllegalArgumentException("User not found"));
     }
 
+    @Transactional
     public void logout(User user) {
         tokenRepository.deleteByUser(user);
     }
 
+    @Transactional
     public void deleteAccount(User user) {
+        System.out.println("user : " + user.getEmail());
         tokenRepository.deleteByUser(user);
         userRepository.delete(user);
     }
+
+    public boolean isNewUser(String email) {
+        boolean exists = userRepository.existsByEmail(email);
+        System.out.println("[isNewUser] Email: " + email + ", Exists: " + exists);
+        return !exists;
+    }
+
+
+
 }
 
