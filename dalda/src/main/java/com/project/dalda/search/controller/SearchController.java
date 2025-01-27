@@ -1,20 +1,23 @@
 package com.project.dalda.search.controller;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.dalda.alcohol.response.AlcoholResponseDto;
 import com.project.dalda.common.response.CommonResponse;
 import com.project.dalda.search.response.SearchResponseDto;
 import com.project.dalda.search.service.SearchService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Map;
+import java.time.Duration;
+import java.util.*;
 
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
 public class SearchController {
     private final SearchService searchService;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     @GetMapping("/search")
     public CommonResponse<?> getSearchBasedRecommendations(@RequestParam String recommendations) {
@@ -56,7 +59,34 @@ public class SearchController {
 
     @GetMapping("/search/list")
     public CommonResponse<?> list(@RequestParam String name) {
-        return CommonResponse.ok(searchService.getSearchData(name), "검색 결과 리턴");
+        List<Object> sake = Arrays.asList(redisTemplate.opsForValue().get("sake"));
+        List<Object> beer = Arrays.asList(redisTemplate.opsForValue().get("beer"));
+        List<Object> soju = Arrays.asList(redisTemplate.opsForValue().get("soju"));
+        List<Object> traditionalLiquor = Arrays.asList(redisTemplate.opsForValue().get("traditionalLiquor"));
+        List<Object> wine = Arrays.asList(redisTemplate.opsForValue().get("wine"));
+        List<Object> whisky = Arrays.asList(redisTemplate.opsForValue().get("whisky"));
+        Map<String, List<Object>> result = new HashMap<>();
+
+        result.put("sake", getSearchData(sake.get(0), name));
+        result.put("beer", getSearchData(beer.get(0), name));
+        result.put("soju", getSearchData(soju.get(0), name));
+        result.put("traditionalLiquor", getSearchData(traditionalLiquor.get(0), name));
+        result.put("wine", getSearchData(wine.get(0), name));
+        result.put("whisky", getSearchData(whisky.get(0), name));
+
+        return CommonResponse.ok(result, "검색 결과 리턴");
+    }
+
+    public List<Object> getSearchData(Object datas, String name) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Map<String, String>> data = objectMapper.convertValue(datas, ArrayList.class);
+        List<Object> result = new ArrayList<>();
+        for(Map<String, String> alcohol : data) {
+            if(alcohol.get("name").contains(name)) {
+                result.add(alcohol);
+            }
+        }
+        return result;
     }
 
     @GetMapping("/alcohols/{alcoholId}/{category}/view")
