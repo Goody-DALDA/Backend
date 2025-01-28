@@ -23,7 +23,7 @@ public class SearchService {
     private final SakeRepository sakeRepository;
     private final TraditionalLiquorRepository traditionalLiquorRepository;
     private final WineRepository wineRepository;
-    private final WiskyRepository wiskyRepository;
+    private final WhiskyRepository whiskyRepository;
 
 
     public List<SearchResponseDto> getSearchBasedRecommendations(String recommendations, int maxResults) {
@@ -72,10 +72,10 @@ public class SearchService {
                 .orElseThrow(() -> new EntityNotFoundException("Wine not found with id: " + id));
     }
 
-    public AlcoholResponseDto getWiskyAlcohols(Long id) {
-        return wiskyRepository.findById(id)
-                .map(WiskyResponseDto::of)
-                .orElseThrow(() -> new EntityNotFoundException("Wisky not found with id: " + id));
+    public AlcoholResponseDto getWhiskyAlcohols(Long id) {
+        return whiskyRepository.findById(id)
+                .map(WhiskyResponseDto::of)
+                .orElseThrow(() -> new EntityNotFoundException("Whisky not found with id: " + id));
     }
 
     public Map<String, List<AlcoholResponseDto>> getSearchData(String name) {
@@ -85,7 +85,7 @@ public class SearchService {
         List<AlcoholResponseDto> sojuData = new ArrayList<>();
         List<AlcoholResponseDto> wineData = new ArrayList<>();
         List<AlcoholResponseDto> traditionalLiquorData = new ArrayList<>();
-        List<AlcoholResponseDto> wiskyData = new ArrayList<>();
+        List<AlcoholResponseDto> whiskyData = new ArrayList<>();
 
         List<Search> searchData = searchRepository.getSearchData(name);
         for(Search search : searchData) {
@@ -106,8 +106,8 @@ public class SearchService {
                 case "traditional_liquor":
                     traditionalLiquorData.add(getTraditionalLiquorAlcohols(alcoholId));
                     break;
-                case "wisky":
-                    wiskyData.add(getWiskyAlcohols(alcoholId));
+                case "whisky":
+                    whiskyData.add(getWhiskyAlcohols(alcoholId));
                     break;
                 default:
                     throw new IllegalArgumentException("해당 카테고리는 존재하지 않습니다.");
@@ -118,7 +118,7 @@ public class SearchService {
         data.put("soju", sojuData);
         data.put("wine", wineData);
         data.put("traditionalLiquor", traditionalLiquorData);
-        data.put("wisky", wiskyData);
+        data.put("whisky", whiskyData);
 
         return data;
     }

@@ -47,8 +47,8 @@ public class SearchController {
             case "traditional_liquor":
                 alcohols = searchService.getTraditionalLiquorAlcohols(alcoholId);
                 break;
-            case "wisky":
-                alcohols = searchService.getWiskyAlcohols(alcoholId);
+            case "whisky":
+                alcohols = searchService.getWhiskyAlcohols(alcoholId);
                 break;
             default:
                 throw new IllegalArgumentException("해당 카테고리는 존재하지 않습니다.");
