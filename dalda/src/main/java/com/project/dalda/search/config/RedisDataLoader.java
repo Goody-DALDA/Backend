@@ -19,7 +19,7 @@ public class RedisDataLoader {
         Object sake = objectMapper.convertValue(alcoholService.getSakeAlcohols(), Object.class);
         Object traditionalLiquor = objectMapper.convertValue(alcoholService.getTraditionalLiquorAlcohols(), Object.class);
         Object wine = objectMapper.convertValue(alcoholService.getWineAlcohols(), Object.class);
-        Object whisky = objectMapper.convertValue(alcoholService.getWiskyAlcohols(), Object.class);
+        Object whisky = objectMapper.convertValue(alcoholService.getWhiskyAlcohols(), Object.class);
         redisTemplate.opsForValue().set("soju", soju);
         redisTemplate.opsForValue().set("beer", beer);
         redisTemplate.opsForValue().set("sake", sake);

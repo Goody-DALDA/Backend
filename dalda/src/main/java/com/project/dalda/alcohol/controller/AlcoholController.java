@@ -37,8 +37,8 @@ public class AlcoholController {
                 case "traditionalliquor":
                     alcohols = alcoholService.getTraditionalLiquorAlcohols();
                     break;
-                case "wisky":
-                    alcohols = alcoholService.getWiskyAlcohols();
+                case "whisky":
+                    alcohols = alcoholService.getWhiskyAlcohols();
                     break;
                 default:
                     throw new IllegalArgumentException("해당 카테고리는 존재하지 않습니다.");

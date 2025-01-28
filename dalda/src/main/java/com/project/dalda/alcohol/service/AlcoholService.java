@@ -18,14 +18,14 @@ public class AlcoholService {
     private final SakeRepository sakeRepository;
     private final TraditionalLiquorRepository traditionalLiquorRepository;
     private final WineRepository wineRepository;
-    private final WiskyRepository wiskyRepository;
+    private final WhiskyRepository whiskyRepository;
 
     public List<AlcoholResponseDto> getAllAlcohols() {
         List<AlcoholResponseDto> allAlcohols = new ArrayList<>();
         allAlcohols.addAll(getSakeAlcohols());
         allAlcohols.addAll(getTraditionalLiquorAlcohols());
         allAlcohols.addAll(getSojuAlcohols());
-        allAlcohols.addAll(getWiskyAlcohols());
+        allAlcohols.addAll(getWhiskyAlcohols());
         allAlcohols.addAll(getBeerAlcohols());
         allAlcohols.addAll(getWineAlcohols());
         return allAlcohols;
@@ -66,10 +66,10 @@ public class AlcoholService {
                 .collect(Collectors.toList());
     }
 
-    public List<AlcoholResponseDto> getWiskyAlcohols() {
-        return wiskyRepository.findAll()
+    public List<AlcoholResponseDto> getWhiskyAlcohols() {
+        return whiskyRepository.findAll()
                 .stream()
-                .map(WiskyResponseDto::of)
+                .map(WhiskyResponseDto::of)
                 .collect(Collectors.toList());
     }
 
